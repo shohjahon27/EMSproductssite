@@ -169,49 +169,49 @@ x.addEventListener("click", (e) => {
   }
 });
 
-// MODAL
-const modaltrigger = document.querySelector("[data-modal]"),
-  modal = document.querySelector(".modal"),
-  modalClosed = document.querySelector("[data-close]");
+// // MODAL
+// const modaltrigger = document.querySelector("[data-modal]"),
+//   modal = document.querySelector(".modal"),
+//   modalClosed = document.querySelector("[data-close]");
 
-function closeModal() {
-  modal.classList.add("hide");
-  modal.classList.remove("show");
-  document.body.style.overflowY = "";
-}
+// function closeModal() {
+//   modal.classList.add("hide");
+//   modal.classList.remove("show");
+//   document.body.style.overflowY = "";
+// }
 
-function openModal() {
-  modal.classList.add("show");
-  modal.classList.remove("hide");
-  document.body.style.overflowY = "hidden";
-  clearInterval(timerModal);
-}
+// function openModal() {
+//   modal.classList.add("show");
+//   modal.classList.remove("hide");
+//   document.body.style.overflowY = "hidden";
+//   clearInterval(timerModal);
+// }
 
-modaltrigger.addEventListener("click", openModal);
+// modaltrigger.addEventListener("click", openModal);
 
-modalClosed.addEventListener("click", closeModal);
+// modalClosed.addEventListener("click", closeModal);
 
-modal.addEventListener("click", (e) => {
-  if (e.target == modal) {
-    closeModal();
-  }
-});
+// modal.addEventListener("click", (e) => {
+//   if (e.target == modal) {
+//     closeModal();
+//   }
+// });
 
-document.addEventListener("keydown", (e) => {
-  if (e.code == "Escape" && modal.classList.contains("show")) {
-    closeModal();
-  }
-});
+// document.addEventListener("keydown", (e) => {
+//   if (e.code == "Escape" && modal.classList.contains("show")) {
+//     closeModal();
+//   }
+// });
 
-timerModal = setTimeout(openModal, 5000);
+// timerModal = setTimeout(openModal, 5000);
 
-function openModalByScrol() {
-  if (
-    window.pageYOffset + document.documentElement.clientHeight >=
-    document.documentElement.scrollHeight
-  ) {
-    openModal();
-    window.removeEventListener("scroll", openModalByScrol);
-  }
-}
-window.addEventListener("scroll", openModalByScrol);
+// function openModalByScrol() {
+//   if (
+//     window.pageYOffset + document.documentElement.clientHeight >=
+//     document.documentElement.scrollHeight
+//   ) {
+//     openModal();
+//     window.removeEventListener("scroll", openModalByScrol);
+//   }
+// }
+// window.addEventListener("scroll", openModalByScrol);
