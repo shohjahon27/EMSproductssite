@@ -33,13 +33,13 @@
               <a href="#sib-form" class="nav__link">Contact us</a>
             </li>
 
-            <i class="bx bx-toggle-left change-theme" id="theme-button"></i>
+            <!-- <i class="bx bx-toggle-left change-theme" id="theme-button"></i> -->
           </ul>
         </div>
 
-        <div class="nav__toggle" id="nav-toggle">
+        <!-- <div class="nav__toggle" id="nav-toggle">
           <i class="bx bx-grid-alt"></i>
-        </div>
+        </div> -->
 
         <a href="#sib-form" class="button button__header">hoziroq buyurtma!</a>
       </nav>
@@ -49,40 +49,39 @@
       <!--=============== HOME ===============-->
 
       <section class="home section" id="home">
-        <!-- Promotion -->
-        <!-- <div class="promotion">
+     <div class="promotion">
           <span class="close" id="close">X</span>
           <div class="bgc_y"></div>
           <div class="container">
-            <!-- <div class="promotion__text">
-          <div class="title">Yangi xaridorlar uchun mega aksiya!</div>
-        </div> -->
-        <!-- <div class="promotion__timer">
-              <div class="title">Aksiya tugashigacha shuncha vaqt qoldi:</div>
+             <div class="promotion__text">
+          <div class="title" style="color: #e7faf0;">Yangi xaridorlar uchun mega aksiya!</div>
+        </div>
+         <div class="promotion__timer">
+              <div class="title" style="color: #f8fc02;" >100 000 so'm</div>
               <div class="timer">
-                <div class="timer__block">
+                <div class="timer__block" >
                   <span id="days">99</span>
-                  kun
+                  <span style="color: #e7faf0; font-size: small;">kun</span>
                 </div>
                 <span class="dot">:</span>
                 <div class="timer__block">
                   <span id="hours">09</span>
-                  soat
+                  <span style="color: #e7faf0; font-size: small;">soat</span>
                 </div>
                 <span class="dot">:</span>
                 <div class="timer__block">
                   <span id="minutes">99</span>
-                  daqiqa
+                  <span style="color: #e7faf0; font-size: small;">daqiqa</span>
                 </div>
                 <span class="dot">:</span>
                 <div class="timer__block">
                   <span id="seconds">09</span>
-                  sekund
+                  <span style="color: #e7faf0; font-size: small;">sekund</span>
                 </div>
               </div>
             </div>
           </div>
-        </div> -->
+        </div>
         <div class="home__container container grid">
           <img
             src="https://m.media-amazon.com/images/I/81h4DKhfy4L._AC_SX425_.jpg"
@@ -102,7 +101,7 @@
             <a href="#sib-form" class="button">buyurtma bering!</a>
           </div>
         </div>
-      </section>
+      </section> 
 
       <!--=============== SECURITY ===============-->
       <section class="security section container">
@@ -1520,10 +1519,75 @@
       <p class="footer__copy">&#169; Dreamer. Barchasi himoyalangan</p>
     </footer>
 
-    <!--=============== SCROLL UP ===============-->
-    <a href="#" class="scrollup" id="scroll-up">
-      <i class="bx bx-up-arrow-alt scrollup__icon"></i>
-    </a>
+
+
+<script>
+  // TIMER PROMOTION
+const deadline = "2023-6-25";
+
+function getTimeRemaining(endtime) {
+  let days, hours, minutes, seconds;
+  const timer = Date.parse(endtime) - Date.parse(new Date());
+
+  if (timer <= 0) {
+    days = "0";
+    hours = "0";
+    minutes = "0";
+    seconds = "0";
+  } else {
+    (days = Math.floor(timer / (1000 * 60 * 60 * 24))),
+      (hours = Math.floor((timer / (1000 * 60 * 60)) % 24)),
+      (minutes = Math.floor((timer / 1000 / 60) % 60)),
+      (seconds = Math.floor((timer / 1000) % 60));
+  }
+
+  return { timer, days, hours, minutes, seconds };
+}
+
+function getZero(num) {
+  if (num >= 0 && num < 10) {
+    return `0${num}`;
+  } else {
+    return num;
+  }
+}
+
+function setClock(selector, endtime) {
+  const timer = document.querySelector(selector),
+    days = timer.querySelector("#days"),
+    hours = timer.querySelector("#hours"),
+    minutes = timer.querySelector("#minutes"),
+    seconds = timer.querySelector("#seconds"),
+    timeInterval = setInterval(updateClock, 1000);
+
+  updateClock();
+
+  function updateClock() {
+    const t = getTimeRemaining(endtime);
+
+    (days.innerHTML = getZero(t.days)),
+      (hours.innerHTML = getZero(t.hours)),
+      (minutes.innerHTML = getZero(t.minutes)),
+      (seconds.innerHTML = getZero(t.seconds));
+
+    if (t.timer <= 0) {
+      clearInterval(timeInterval);
+    }
+  }
+}
+
+setClock(".timer", deadline);
+
+// close
+const x = document.querySelector(".close"),
+  pro = document.querySelector(".promotion");
+
+x.addEventListener("click", (e) => {
+  if (e.target == x) {
+    pro.style.display = "none";
+  }
+});
+</script>
 
     <!--=============== MAIN JS ===============-->
     <!-- <script src="assets/js/main.js"></script>
