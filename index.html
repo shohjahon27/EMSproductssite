@@ -45,6 +45,13 @@
       </nav>
     </header>
 
+
+    <!-- NOTIFICATION BAR -->
+    <div class="notification-container">
+      <div class="notification"></div>
+    </div>
+    
+
     <main class="main">
       <!--=============== HOME ===============-->
 
@@ -1523,7 +1530,7 @@
 
 <script>
   // TIMER PROMOTION
-const deadline = "2023-6-25";
+const deadline = "2023-6-30";
 
 function getTimeRemaining(endtime) {
   let days, hours, minutes, seconds;
@@ -1587,7 +1594,25 @@ x.addEventListener("click", (e) => {
     pro.style.display = "none";
   }
 });
+
+
+//NOTIFICATION
+function generateUserNumber() {
+  var randomNumber = Math.floor(Math.random() * 1000);
+  return "user" + randomNumber.toString().padStart(3, "0");
+}
+
+setInterval(function() {
+  var notificationElement = document.querySelector(".notification");
+  var userNumber = generateUserNumber();
+  notificationElement.innerHTML = userNumber + ": 1 ta maxsulot sotib oldi";
+  notificationElement.style.display = "block";
+  setTimeout(function() {
+    notificationElement.style.display = "none";
+  }, 5000);
+}, 40000);
 </script>
+
 
     <!--=============== MAIN JS ===============-->
     <!-- <script src="assets/js/main.js"></script>
