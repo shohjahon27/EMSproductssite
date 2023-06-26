@@ -610,74 +610,84 @@ body.dark-theme {
 
 /* PROMOTION */
 
+
 .promotion {
-  padding: 0px 0 40px 0;
-  position:fixed;
-  background-color: #5e5b5d;
-  opacity: 85%;
-  z-index: 10110100% !important;
-}
-/* .promotion .container { */
-  /* display: flex; */
-
-.promotion .bgc_y {
-  position: absolute;
-  width: 50%;
-  height: 499px;
-  z-index: -1;
-  top: 0px;
-  left: 0;
+  position: fixed;
+  padding: 20px;
+  background-color: #6c6666;
+  box-shadow: 0 2px 4px rgba(235, 25, 25, 0.1);
+  opacity: 90%;
 }
 
-
-.promotion__timer {
-  width: 50%;
-  color: aliceblue;
-}
-.promotion__timer {
-  text-align: right;
-}
-.promotion__timer .timer {
-  margin-top: 0px;
-  padding-left: 5px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-.promotion__timer .timer__block {
-  width: 92px;
-  height: 120px;
-  background: #938791;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
-  font-size: 16px;
-  font-weight: 300;
+.promotion__text {
   text-align: center;
-  border: 1px solid #fff;
-  color: #1a1a1a;
-}
-.promotion__timer .timer__block span {  
-  display: block;
-  margin-top: 25px;
-  margin-bottom: 5px;
-  font-size: 56px;
-  font-weight: 700;
+  margin-bottom: 10px;
+  font-size: 5px;
+  color: #cad5cf;
 }
 
-.dot{
- font-size: 40px;
- color: rgb(69, 71, 73);
- color: aliceblue;
- padding: 5px;
-
+.promotion__timer {
+  display: absolute;
+  /* justify-content: center;
+  align-items: center; */
 }
+
 .close{
-  cursor: pointer;
-  color: #ff0000;
-  margin-left: 80%;
-  /* padding-top: 90%; */
-  font-weight: bold;
   font-size: 40px;
+  color: #f8fc02;
+  cursor: pointer;
 }
+
+.title {
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 1.5;
+}
+
+.timer__block {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #f8fc02;
+  width: 50px;
+  height: 60px;
+  margin: 0 5px;
+  border-radius: 5px;
+  font-size: 24px;
+  color: #000000;
+}
+
+.dot {
+  font-size: 24px;
+  color: #e7faf0;
+  margin: 0 5px;
+  display: none;
+}
+
+@media only screen and (max-width: 768px) {
+  .promotion__timer {
+    flex-wrap: wrap;
+  }
+
+  .timer__block {
+    width: 25%;
+    margin: 5px;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .promotion__timer {
+    flex-wrap: wrap;
+  }
+
+  .timer__block {
+    width: 25%;
+    margin: 5px;
+  }
+}
+
+
 .timer{
   /* color: #fff !important; */
 }
